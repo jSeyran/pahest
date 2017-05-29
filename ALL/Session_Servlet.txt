@@ -1,0 +1,39 @@
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%-- Created by IntelliJ IDEA. --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
+    <title>HI JUD</title>
+  </head>
+  <style>
+    h4 {
+      font-family: 'Times New Roman', Times, serif; /* Гарнитура текста */
+      font-size: 250%; /* Размер шрифта в процентах */
+    }
+  </style>
+  <h4 style="text-align: center;"><b><var>J.U.D код от Души....</var></b></h4>
+  <p align="center"><var><img alt="" height="348" src="http://judteam.xyz/gallery_gen/8ff3c8d2412b9655cbeb0151f7c8ec6a_1040x696.90721649485.jpg" width="520"></var></p>
+  <h1 style="text-align: center;"><var>SESSION TEST</var></h1>
+  <form action="index.jsp" method="post">
+
+    <p align="center"><var>ADD <input name="nickname" type="text"> </var></p>
+    <p input type="submit " value="opa!"> </p>
+    <%
+      List<String> q= (List<String>) session.getAttribute("HI");
+      if (q==null){
+          q=new ArrayList<String>();
+          session.setAttribute("HI", q);
+      }
+      if(request.getParameter("nickname")!=null){
+          q.add(request.getParameter("nickname"));
+      }
+      for (String a: q){
+          out.println(a+"<BR/>");
+      }
+
+    %>
+  </form>
+  <body>
+
+  </body>
+</html>
