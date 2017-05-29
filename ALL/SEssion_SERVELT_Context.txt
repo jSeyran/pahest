@@ -20,13 +20,18 @@
     <p input type="submit " value="opa!"> </p>
     <%
       List<String> q= (List<String>) session.getAttribute("HI");
+      ServletContext context=request.getServletContext();
+
       if (q==null){
           q=new ArrayList<String>();
           session.setAttribute("HI", q);
+
       }
       if(request.getParameter("nickname")!=null){
           q.add(request.getParameter("nickname"));
+          context.setAttribute("HI", request.getParameter("nickname"));
       }
+      out.println("Start uzer :"+context.getAttribute("HI")+"<BR/>");
       for (String a: q){
           out.println(a+"<BR/>");
       }
