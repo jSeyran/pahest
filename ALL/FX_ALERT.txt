@@ -1,0 +1,11 @@
+//////////////////////////Alert METHOD //////////////////////////////////////////
+    public void alertSHOW(String ERROR, String info) {
+
+    Alert alertSHOW = new Alert(Alert.AlertType.ERROR);
+
+        alertSHOW.setTitle(ERROR);
+        alertSHOW.setHeaderText(null);
+        alertSHOW.setContentText(info);
+
+        alertSHOW.showAndWait();
+}

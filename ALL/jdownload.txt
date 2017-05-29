@@ -1,0 +1,40 @@
+ import java.io.FileOutputStream;
+import java.net.URL;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.Channels;
+
+
+void download(String filename) throws Exception {
+      filename="file:/C:/Users/Admin/Desktop/"+filename;   kayqi hxum vortexic
+       String file ="C:/Users/Admin/Download/"+filename;
+        URL url = new URL(filename);
+        ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+        FileOutputStream fos = new FileOutputStream(file);
+        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        fos.close();
+        rbc.close();
+    }
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////METOD///////////////////////////////////
+
+private static void DownLoad(String url_File, String folder_file) {
+        URL url = null;
+        FileOutputStream fos = null;
+        try {
+            url = new URL(url_File);
+            ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+            fos = new FileOutputStream(folder_file);
+            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+            fos.close();
+            rbc.close();
+
+        } catch (Exception e) {
+            ErrorLog("DownLOad Eror URL="+url_File+"  File_Path ="+folder_file);
+        }
+
+    }
+
+///////////////////////////////////////////////////////////////////////////////////
